@@ -1,0 +1,7 @@
+{
+  "name": "svarka-prototype",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
