@@ -23,7 +23,7 @@ const Deck: React.FC = () => {
   return (
     <div>
       <div className={styles["button-container"]}>
-        <Button onClick={shuffle} className={styles["button"]}/>
+        <Button onClick={shuffle} className={styles["button"]} label="Shuffle"/>
       </div>
       <div className={styles["deck-container"]}>
         {deck.map((card) => {

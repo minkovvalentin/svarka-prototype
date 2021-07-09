@@ -7,10 +7,27 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
+import { useEffect, useState } from "react";
+import Button from "../../components/button/Button";
 import Deck from "../../components/deck/Deck";
-import "./Game.css";
+import styles from "./Game.module.scss";
+
+type contentType = "deck" | "play" | "rules";
 
 const Page: React.FC = () => {
+  const [content, setContent] = useState<contentType>("deck");
+
+  const getContent = (currentContent: contentType): JSX.Element => {
+    switch (currentContent) {
+      case "deck":
+        return <Deck />;
+      case "play":
+        return <p>Lets play</p>;
+      case "rules":
+        return <p>The rules are there are no rules</p>;
+    }
+    return <></>;
+  };
 
   return (
     <IonPage>
@@ -31,7 +48,23 @@ const Page: React.FC = () => {
           </IonToolbar>
         </IonHeader>
 
-        <Deck/>
+        <div className={styles["content-selection-container"]}>
+          {[
+            { label: "Deck", onClick: () => setContent("deck") },
+            { label: "Play", onClick: () => setContent("play") },
+            { label: "Rules", onClick: () => setContent("rules") },
+          ].map(({ label, onClick }: any) => {
+            return (
+              <Button
+                className="select-content-btn"
+                onClick={onClick}
+                label={label}
+              />
+            );
+          })}
+        </div>
+
+        {getContent(content)}
       </IonContent>
     </IonPage>
   );

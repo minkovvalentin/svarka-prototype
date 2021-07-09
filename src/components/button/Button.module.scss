@@ -1,10 +1,10 @@
 .button {
-    font-size: 16px;
-    font-weight: bold;
-    background-color: var(--color_pink_blush);
-    &:hover {
-      background-color: var(--color_beige_ivory);
-      color: var(--color_black_gunmetal);
-    }
+  padding: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: var(--color_black_gunmetal);
+  &:hover {
+    background-color: var(--color_beige_ivory);
+    color: var(--color_black_gunmetal);
   }
-
+}
