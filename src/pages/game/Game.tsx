@@ -1,11 +1,16 @@
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import { useParams } from 'react-router';
-import ExploreContainer from '../components/ExploreContainer';
-import './Page.css';
+import {
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonMenuButton,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+} from "@ionic/react";
+import Deck from "../../components/deck/Deck";
+import "./Game.css";
 
 const Page: React.FC = () => {
-
-  const { name } = useParams<{ name: string; }>();
 
   return (
     <IonPage>
@@ -14,17 +19,19 @@ const Page: React.FC = () => {
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
-          <IonTitle>{name}</IonTitle>
+          <IonTitle>Svarka</IonTitle>
         </IonToolbar>
       </IonHeader>
 
       <IonContent fullscreen>
+        {/* TO DO: Find out why we need header, toolbar, title. They don't seem to change much */}
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">{name}</IonTitle>
+            <IonTitle size="large">Svarka</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer name={name} />
+
+        <Deck/>
       </IonContent>
     </IonPage>
   );

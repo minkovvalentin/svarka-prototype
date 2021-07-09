@@ -1,0 +1,103 @@
+.button-container {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.button{
+  width:300px;
+  height: 100px;
+}
+
+.deck-container {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  row-gap: 10px;
+  justify-content: center;
+  justify-items: center;
+  padding-top: 1rem;
+  max-height: 800px;
+  overflow: scroll;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  @media only screen and (max-width: 1250px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media only screen and (max-width: 900px) {
+    max-height: 600px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media only screen and (max-width: 480px) {
+    max-height: 450px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.deck {
+  height: 100%;
+  width: 100%;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  border-radius: 0.5rem;
+  color: white;
+  user-select: none;
+}
+
+.computer-deck {
+  background-color: green;
+}
+
+.player-deck {
+  background-color: blue;
+}
+
+.text {
+  grid-column: span 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background-color: white;
+  position: relative;
+  height: 200px;
+  width: 150px;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+}
+
+.card::before,
+.card::after {
+  position: absolute;
+  content: attr(data-value);
+  font-size: 1rem;
+}
+
+.card::before {
+  top: 0.5rem;
+  left: 0.5rem;
+}
+
+.card::after {
+  bottom: 0.5rem;
+  right: 0.5rem;
+  transform: rotate(180deg);
+}
+
+
+.card.red {
+  color: red;
+}
+
+.card.black {
+  color: black;
+}
+

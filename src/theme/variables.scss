@@ -3,6 +3,13 @@ http://ionicframework.com/docs/theming/ */
 
 /** Ionic CSS Variables **/
 :root {
+  // Dev colors
+  --color_black_gunmetal: #2C363F;
+  --color_pink_blush: #E75A7C;
+  --color_beige_ivory: #F2F5EA;
+  --color_grey_timberwolf: #D6DBD2;
+  --color_green_laurel: #BBC7A4;
+
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -234,3 +241,4 @@ http://ionicframework.com/docs/theming/ */
     --ion-card-background: #1e1e1e;
   }
 }
+
