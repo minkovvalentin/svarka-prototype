@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { Card } from "../../interfaces/Card";
+import { CardInterface } from "../../interfaces/Card";
 import { createDeck, shuffleDeck } from "../../utils/deck";
 import Button from "../button/Button";
+import  Card from "../card/Card";
 import styles from "./Deck.module.scss";
 
 const Deck: React.FC = () => {
-  const [deck, setDeck] = useState<Card[]>([]);
+  const [deck, setDeck] = useState<CardInterface[]>([]);
 
   useEffect(() => {
     setDeck(shuffleDeck(createDeck()));
@@ -16,32 +17,22 @@ const Deck: React.FC = () => {
     setDeck(shuffledDeck);
   };
 
-  const getCardColor = (suit: string) => {
-    return suit === "♣" || suit === "♠" ? "black" : "red";
-  };
-
   return (
-    <div>
+    <div className={styles["container"]}>
+      <p>
+        Those are the cards used in Svara. There are many like it, but these are
+        Svara's.
+      </p>
       <div className={styles["button-container"]}>
-        <Button onClick={shuffle} className={styles["button"]} label="Shuffle"/>
+        <Button
+          onClick={shuffle}
+          className={styles["button"]}
+          label="Shuffle"
+        />
       </div>
       <div className={styles["deck-container"]}>
         {deck.map((card) => {
-          return (
-            <div
-              className={styles["card-container"]}
-              key={`${card.suit}-${card.value}`}
-            >
-              <div
-                className={`${styles["card"]} ${
-                  styles[getCardColor(card.suit)]
-                }`}
-                data-value={`${card.suit} ${card.value}`}
-              >
-                {card.suit}
-              </div>
-            </div>
-          );
+          return <Card key={`${card.suit}-${card.value.value}`} card={card}/>
         })}
       </div>
     </div>

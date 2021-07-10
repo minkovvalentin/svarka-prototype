@@ -28,7 +28,7 @@ interface AppPage {
 
 const appPages: AppPage[] = [
   {
-    title: "Svarka",
+    title: "Svara",
     url: "/game",
     iosIcon: gameControllerOutline,
     mdIcon: gameControllerSharp,
@@ -40,8 +40,6 @@ const appPages: AppPage[] = [
     mdIcon: settingsSharp,
   },
 ];
-
-const labels = ["Family", "Friends", "Notes", "Work", "Travel", "Reminders"];
 
 const Menu: React.FC = () => {
   const location = useLocation();

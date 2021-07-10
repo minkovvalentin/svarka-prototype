@@ -7,24 +7,26 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Button from "../../components/button/Button";
 import Deck from "../../components/deck/Deck";
+import Play from "../../components/play/Play";
+import Rules from "../../components/rules/Rules";
 import styles from "./Game.module.scss";
 
-type contentType = "deck" | "play" | "rules";
+type contentType = "play" | "deck" | "rules";
 
 const Page: React.FC = () => {
-  const [content, setContent] = useState<contentType>("deck");
+  const [content, setContent] = useState<contentType>("play");
 
   const getContent = (currentContent: contentType): JSX.Element => {
     switch (currentContent) {
       case "deck":
         return <Deck />;
       case "play":
-        return <p>Lets play</p>;
+        return <Play />;
       case "rules":
-        return <p>The rules are there are no rules</p>;
+        return <Rules/>;
     }
     return <></>;
   };
@@ -36,7 +38,7 @@ const Page: React.FC = () => {
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
-          <IonTitle>Svarka</IonTitle>
+          <IonTitle>Svara</IonTitle>
         </IonToolbar>
       </IonHeader>
 
@@ -44,21 +46,23 @@ const Page: React.FC = () => {
         {/* TO DO: Find out why we need header, toolbar, title. They don't seem to change much */}
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Svarka</IonTitle>
+            <IonTitle size="large">Svara</IonTitle>
           </IonToolbar>
         </IonHeader>
 
         <div className={styles["content-selection-container"]}>
           {[
-            { label: "Deck", onClick: () => setContent("deck") },
             { label: "Play", onClick: () => setContent("play") },
+            { label: "Deck", onClick: () => setContent("deck") },
             { label: "Rules", onClick: () => setContent("rules") },
           ].map(({ label, onClick }: any) => {
             return (
               <Button
+                key={`${label}`}
                 className="select-content-btn"
                 onClick={onClick}
                 label={label}
+                active={content === label.toLowerCase()}
               />
             );
           })}

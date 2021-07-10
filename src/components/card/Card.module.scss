@@ -1,0 +1,39 @@
+
+.card {
+  background-color: white;
+  position: relative;
+  height: 200px;
+  width: 150px;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+}
+
+.card::before,
+.card::after {
+  position: absolute;
+  content: attr(data-value);
+  font-size: 1rem;
+}
+
+.card::before {
+  top: 0.5rem;
+  left: 0.5rem;
+}
+
+.card::after {
+  bottom: 0.5rem;
+  right: 0.5rem;
+  transform: rotate(180deg);
+}
+
+.card.red {
+  color: red;
+}
+
+.card.black {
+  color: black;
+}
