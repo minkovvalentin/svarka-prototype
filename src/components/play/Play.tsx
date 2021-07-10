@@ -15,14 +15,20 @@ const Play: React.FC = () => {
 
   const draw = () => {
     const deck = shuffleDeck(createDeck());
-    const drawn = drawCards(deck, 10);
+    const drawn = drawCards(deck, 2);
     setDrawnCards(drawn);
   };
 
   return (
     <IonContent>
       <div className={styles["players-cards-container"]}>
-        <Button label="New draw" className={styles["button"]} onClick={draw} />
+        <div className={styles["button-container"]}>
+          <Button
+            label="New draw"
+            className={styles["button"]}
+            onClick={draw}
+          />
+        </div>
         {drawnCards.map((playersCards) => {
           return (
             <div
